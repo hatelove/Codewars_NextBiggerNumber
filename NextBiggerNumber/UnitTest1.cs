@@ -68,11 +68,12 @@ namespace NextBiggerNumber
                     var temp = inputNumbers[index];
                     inputNumbers[index] = inputNumbers[index - 1];
                     inputNumbers[index - 1] = temp;
+
+                    return GetNumbericFromValueList(inputNumbers);
                 }
             }
 
-            int result = GetNumbericFromValueList(inputNumbers);
-            return result == input ? -1 : result;
+            return -1;
         }
 
         private static int GetNumbericFromValueList(List<int> inputNumbers)
