@@ -31,6 +31,16 @@ namespace NextBiggerNumber
 
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_input_is_12_should_return_21()
+        {
+            var input = 12;
+            var expected = 21;
+
+            var actual = NextLargerNumber.Next(input);
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     public static class NextLargerNumber
