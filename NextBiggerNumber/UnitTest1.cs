@@ -104,7 +104,7 @@ namespace NextBiggerNumber
                     var r = inputNumbers.GetRange(index, inputNumbers.Count - index);
                     var l = inputNumbers.GetRange(0, index);
 
-                    Swap(r, inputNumbers, index, l);
+                    Swap(r, index, l);
 
                     l.AddRange(r.OrderBy(x => x));
 
@@ -115,14 +115,15 @@ namespace NextBiggerNumber
             return -1;
         }
 
-        private static void Swap(List<int> r, List<int> inputNumbers, int index, List<int> l)
+        private static void Swap(List<int> r, int index, List<int> l)
         {
+            var t = l[index - 1];
             for (int i = r.Count - 1; i >= 0; i--)
             {
-                if (r[i] > inputNumbers[index - 1])
+                if (r[i] > t)
                 {
                     l[index - 1] = r[i];
-                    r[i] = inputNumbers[index - 1];
+                    r[i] = t;
                     break;
                 }
             }
