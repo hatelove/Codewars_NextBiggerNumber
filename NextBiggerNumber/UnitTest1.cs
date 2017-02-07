@@ -100,18 +100,17 @@ namespace NextBiggerNumber
             for (int index = inputNumbers.Count - 1; index > 0; index--)
             {
                 if (inputNumbers[index] > inputNumbers[index - 1])
-                {
-                    var t = inputNumbers[index - 1]; //暫存 for swap
+                {                    
                     var r = inputNumbers.Skip(index).Take(inputNumbers.Count - index).ToList();
-                    var l = inputNumbers.Take(index).ToList(); //包含t
+                    var l = inputNumbers.Take(index).ToList();
 
                     for (int i = r.Count - 1; i >= 0; i--)
                     {
-                        if (r[i] > t)
+                        if (r[i] > inputNumbers[index - 1])
                         {
                             l[index - 1] = r[i];
-                            r[i] = t;
-                            break; //找到第一個可以swap的，就是比t大的最小值
+                            r[i] = inputNumbers[index - 1];
+                            break;
                         }
                     }
 
