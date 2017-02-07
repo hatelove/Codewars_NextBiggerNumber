@@ -99,13 +99,27 @@ namespace NextBiggerNumber
 
             for (int index = inputNumbers.Count - 1; index > 0; index--)
             {
-                if (inputNumbers[index] > inputNumbers[index - 1])
+                var rightFlag = inputNumbers[index];
+                var leftFlag = inputNumbers[index - 1];
+                if (rightFlag > leftFlag)
                 {
-                    var temp = inputNumbers[index];
-                    inputNumbers[index] = inputNumbers[index - 1];
-                    inputNumbers[index - 1] = temp;
+                    var t = leftFlag; //暫存 for swap
+                    var r = inputNumbers.Skip(index).Take(inputNumbers.Count - index).ToList();
+                    var l = inputNumbers.Take(index).ToList(); //包含t
 
-                    return GetNumbericFromValueList(inputNumbers);
+                    for (int i = r.Count - 1; i >= 0; i--)
+                    {
+                        if (r[i] > t)
+                        {
+                            l[index - 1] = r[i];
+                            r[i] = t;
+                            break; //找到第一個可以swap的，就是比t大的最小值
+                        }
+                    }
+
+                    l.AddRange(r.OrderBy(x => x));
+
+                    return GetNumbericFromValueList(l);
                 }
             }
 
