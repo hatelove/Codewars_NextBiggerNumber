@@ -99,11 +99,9 @@ namespace NextBiggerNumber
 
             for (int index = inputNumbers.Count - 1; index > 0; index--)
             {
-                var rightFlag = inputNumbers[index];
-                var leftFlag = inputNumbers[index - 1];
-                if (rightFlag > leftFlag)
+                if (inputNumbers[index] > inputNumbers[index - 1])
                 {
-                    var t = leftFlag; //暫存 for swap
+                    var t = inputNumbers[index - 1]; //暫存 for swap
                     var r = inputNumbers.Skip(index).Take(inputNumbers.Count - index).ToList();
                     var l = inputNumbers.Take(index).ToList(); //包含t
 
