@@ -1,5 +1,7 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NextBiggerNumber
 {
@@ -47,7 +49,27 @@ namespace NextBiggerNumber
     {
         public static int Next(int input)
         {
-            return -1;            
+            var inputNumbers = input.ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToList();
+
+            if (inputNumbers.Count == 1)
+            {
+                return -1;
+            }
+
+            var temp = inputNumbers[1];
+            inputNumbers[1] = inputNumbers[0];
+            inputNumbers[0] = temp;
+
+            int result = GetNumbericFromValueList(inputNumbers);
+            return result;
+        }
+
+        private static int GetNumbericFromValueList(List<int> inputNumbers)
+        {
+            var count = inputNumbers.Count;
+
+            var result = inputNumbers.Select((x, index) => x * (Math.Pow(10, (count - index - 1)))).Sum();
+            return Convert.ToInt32(result);
         }
     }
 }
