@@ -89,6 +89,15 @@ namespace NextBiggerNumber
             var actual = NextLargerNumber.Next(input);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_11200_should_return_12001()
+        {
+            var input = 11200;
+            var expected = 12001;
+            var actual = NextLargerNumber.Next(input);
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     public static class NextLargerNumber
