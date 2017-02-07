@@ -66,12 +66,16 @@ namespace NextBiggerNumber
                 return -1;
             }
 
-            if (inputNumbers[1] > inputNumbers[0])
+            for (int index = inputNumbers.Count - 1; index > 0; index--)
             {
-                var temp = inputNumbers[1];
-                inputNumbers[1] = inputNumbers[0];
-                inputNumbers[0] = temp;
+                if (inputNumbers[index] > inputNumbers[index - 1])
+                {
+                    var temp = inputNumbers[index];
+                    inputNumbers[index] = inputNumbers[index - 1];
+                    inputNumbers[index - 1] = temp;
+                }
             }
+
 
             int result = GetNumbericFromValueList(inputNumbers);
             return result == input ? -1 : result;
