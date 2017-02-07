@@ -14,11 +14,8 @@ namespace NextBiggerNumber
         public void Test_1_should_be_largestNumber()
         {
             var input = 1;
-
             var expected = NoLargerNumber;
-
             int actual = NextLargerNumber.Next(input);
-
             Assert.AreEqual(expected, actual);
         }
 
@@ -26,11 +23,8 @@ namespace NextBiggerNumber
         public void Test_9_should_be_largestNumber()
         {
             var input = 9;
-
             var expected = NoLargerNumber;
-
             int actual = NextLargerNumber.Next(input);
-
             Assert.AreEqual(expected, actual);
         }
 
@@ -39,7 +33,6 @@ namespace NextBiggerNumber
         {
             var input = 12;
             var expected = 21;
-
             var actual = NextLargerNumber.Next(input);
             Assert.AreEqual(expected, actual);
         }
@@ -50,7 +43,6 @@ namespace NextBiggerNumber
             var input = 21;
             var expected = NoLargerNumber;
             var actual = NextLargerNumber.Next(input);
-
             Assert.AreEqual(expected, actual);
         }
 
