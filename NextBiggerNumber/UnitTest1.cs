@@ -100,9 +100,9 @@ namespace NextBiggerNumber
             for (int index = inputNumbers.Count - 1; index > 0; index--)
             {
                 if (inputNumbers[index] > inputNumbers[index - 1])
-                {                    
-                    var r = inputNumbers.Skip(index).Take(inputNumbers.Count - index).ToList();
-                    var l = inputNumbers.Take(index).ToList();
+                {
+                    var r = inputNumbers.GetRange(index, inputNumbers.Count - index);
+                    var l = inputNumbers.GetRange(0, index);
 
                     for (int i = r.Count - 1; i >= 0; i--)
                     {
