@@ -61,11 +61,6 @@ namespace NextBiggerNumber
         {
             var inputNumbers = input.ToString().ToCharArray().Select(x => (int)Char.GetNumericValue(x)).ToList();
 
-            if (inputNumbers.Count == 1)
-            {
-                return -1;
-            }
-
             for (int index = inputNumbers.Count - 1; index > 0; index--)
             {
                 if (inputNumbers[index] > inputNumbers[index - 1])
@@ -75,7 +70,6 @@ namespace NextBiggerNumber
                     inputNumbers[index - 1] = temp;
                 }
             }
-
 
             int result = GetNumbericFromValueList(inputNumbers);
             return result == input ? -1 : result;
