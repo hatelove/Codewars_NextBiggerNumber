@@ -71,6 +71,24 @@ namespace NextBiggerNumber
             var actual = NextLargerNumber.Next(input);
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void Test_input_is_345_should_return_354()
+        {
+            var input = 345;
+            var expected = 354;
+            var actual = NextLargerNumber.Next(input);
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void input_is_576_should_return_657()
+        {
+            var input = 576;
+            var expected = 657;
+            var actual = NextLargerNumber.Next(input);
+            Assert.AreEqual(expected, actual);
+        }
     }
 
     public static class NextLargerNumber
